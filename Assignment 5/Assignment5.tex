@@ -1,0 +1,202 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Time Series Assignment 5},
+  pdfauthor={Lucas Cruz Fernandez},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Time Series Assignment 5}
+\author{Lucas Cruz Fernandez}
+\date{}
+
+\begin{document}
+\maketitle
+
+\#\#Question 9 We first read in the data and again calculate the growth
+rate \(r_t\) as in Assignment 3. The code for this is omitted for
+brevity.
+
+We save the last 6 observations for calculating the Root Men Squared
+Error at the end and define some general parameters that are of use
+later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{no_models =}\StringTok{ }\DecValTok{4} \CommentTok{#number of models we want to estimate}
+\NormalTok{n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(growth_rate)  }\CommentTok{#helpful when "reducing" data sets later}
+\NormalTok{valid <-}\StringTok{ }\NormalTok{growth_rate[}\KeywordTok{c}\NormalTok{((n}\DecValTok{-5}\NormalTok{)}\OperatorTok{:}\NormalTok{n)] }\CommentTok{#contains last 6 elements of growth_rate}
+\end{Highlighting}
+\end{Shaded}
+
+The below function creates a one-step ahead prediction using the
+supplied \(data\) and binds all predictions together in one list, which
+is returned.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forecast_onestep <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(data, no_models)\{  }
+\NormalTok{  prediction_list <-}\StringTok{ }\KeywordTok{vector}\NormalTok{()  }\CommentTok{#list of predictions to be returned}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{0}\NormalTok{, }\DataTypeTok{to=}\NormalTok{(no_models }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)))\{     }\CommentTok{#loop over the models we are interested in }
+\NormalTok{    model <-}\StringTok{ }\KeywordTok{arima}\NormalTok{(data, }\DataTypeTok{order =} \KeywordTok{c}\NormalTok{(i, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+                 \DataTypeTok{optim.control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{maxit =} \DecValTok{1000}\NormalTok{))    }\CommentTok{#estimate the model}
+\NormalTok{    prediction <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model, }\DataTypeTok{n.ahead =} \DecValTok{1}\NormalTok{, }\DataTypeTok{se.fit=}\OtherTok{FALSE}\NormalTok{) }\CommentTok{#make prediction based on model}
+\NormalTok{    prediction_list <-}\StringTok{ }\KeywordTok{c}\NormalTok{(prediction_list, prediction)   }\CommentTok{#add prediction to prediction list}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(prediction_list)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+We will use this function now to forecast the last 6 values of the
+dataset. First, we create an empty \(4\times 6\) matrix, where the
+columns represent the period we forecast and each row represents a
+different model. The forecasting process in the \emph{for}-loop then
+works as follows: to predict the last period we use all but the last
+observation, thus, we remove it from the dataset. We use this
+``reduced'' dataset to make the forecast using our before defined
+function. The result of this function - the list of predictions from
+each model - is then added as the \(i^th\) column of the matrix. The
+second to last period is then predicted using all but the last two
+observations and so on. In the end, the matrix contains all predictions
+of all models for the periods of interest (e.g.~element {[}2, 2{]} of
+the matrix is the prediction of the second to last period using an AR(1)
+model).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#apply function to different datasets to get different predictions }
+\NormalTok{n <-}\StringTok{ }\KeywordTok{length}\NormalTok{(growth_rate)}
+\NormalTok{predictions_mat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data =} \OtherTok{NA}\NormalTok{, }\DataTypeTok{nrow =} \DecValTok{4}\NormalTok{, }\DataTypeTok{ncol =} \DecValTok{6}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)\{}
+\NormalTok{  data <-}\StringTok{ }\NormalTok{growth_rate[}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{(n}\OperatorTok{-}\NormalTok{i))]}
+\NormalTok{  predictions_mat[, i] <-}\StringTok{ }\KeywordTok{forecast_onestep}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ data, }\DataTypeTok{no_models =}\NormalTok{ no_models)}
+\NormalTok{\}}
+\NormalTok{predictions_mat <-}\StringTok{ }\KeywordTok{Rev}\NormalTok{(predictions_mat, }\DecValTok{2}\NormalTok{) }\CommentTok{#predictions returned are in "wrong" order; }
+\CommentTok{#we want the first column to represent the eraliest forecasted period (T - 6), not the last}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, to calculate the RMSE we use a predefined function from the
+Metrics package. The errors vector is filled with the corresponding RMSE
+of each model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{errors <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{length =}\NormalTok{ no_models)}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{dim}\NormalTok{(predictions_mat)[}\DecValTok{1}\NormalTok{])\{}
+\NormalTok{  errors[i] <-}\StringTok{ }\KeywordTok{rmse}\NormalTok{(valid, predictions_mat[i, ])}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In this list of errors the second one is the smallest. The second model
+we used to create the one-step ahead forecasts is an \(AR(1)\) model.
+Thus, based on the RMSE this is the best model to forecast the GDP
+growth rate.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which}\NormalTok{(errors }\OperatorTok{==}\StringTok{ }\KeywordTok{min}\NormalTok{(errors))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2
+\end{verbatim}
+
+\end{document}
